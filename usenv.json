@@ -1,0 +1,19 @@
+{
+  "id": "acf0915c-aa2a-41ab-9c89-686f7955967d",
+  "name": "LocationIQ US Endpoint",
+  "values": [
+    {
+      "key": "LocationIQ_Endpoint_URL",
+      "value": "https://us1.locationiq.com",
+      "enabled": true
+    },
+    {
+      "key": "Your_API_Key",
+      "value": "<Enter your API Key/access token here>",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2019-07-05T05:53:40.672Z",
+  "_postman_exported_using": "Postman/7.2.2"
+}

@@ -1,0 +1,8 @@
+export default {
+  HOME: 'HOME',
+  REQUEST: 'REQUEST',
+  HELP: 'HELP',
+  HELP_STATUS: 'HELP_STATUS',
+  SERVICE: 'SERVICE',
+  USER_PROFILE: 'USER_PROFILE',
+}
