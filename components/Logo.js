@@ -5,14 +5,14 @@ import { View, StyleSheet, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-const Logo = () => (
-  <View style={{
+const Logo = ({style}) => (
+  <View style={[{
     marginTop: hp('8%'),
     display: 'flex', 
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
-  }}>
+  }, style]}>
     <View style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingRight: wp('2.5%')}}>
       <Ionicons name="ios-hand" size={wp('12.5%')} color="#e91e63" />
     </View>

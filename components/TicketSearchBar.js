@@ -7,6 +7,7 @@ import {setSearching, setSearchTickets} from '../context/actions';
 import Colors from '../constants/Colors';
 import AuthContext from "../context/authContext";
 import _ from 'lodash';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 
 const TicketSearchBar = () => {
   const [search, setSearch] = useState('');
@@ -49,9 +50,24 @@ const TicketSearchBar = () => {
       onFocus={() => dispatch(setSearching(true))}
       containerStyle={{
         backgroundColor: Colors.background,
-        padding: 5
+        padding: widthPercentageToDP('0.75%'),
       }}
-
+      inputStyle={{
+        height: widthPercentageToDP('8%'),
+        fontSize: widthPercentageToDP('3%'),
+        fontFamily: 'lato'
+      }}
+      cancelButtonProps={{
+        buttonTextStyle:{
+          fontSize: widthPercentageToDP('3%'),
+          fontFamily: 'lato-bold'
+        }
+      }}
+      searchIcon={{
+        iconStyle:{
+          fontSize: widthPercentageToDP('4.5%')
+        }
+      }}
     />
   );
 };

@@ -164,7 +164,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   contentContainer: {
-    flex: 1,
     paddingHorizontal: wp('5.5%'),
     paddingTop: hp('1%'),
     backgroundColor: Colors.background
@@ -174,12 +173,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   buttonContainer: {
-    marginTop: 20,
-    marginLeft: 30,
-    marginRight: 30
+    marginTop: hp('2%'),
   },
   counterWrapper: {
-    padding: wp('2%'),
+    paddingVertical: wp('2%'),
+    paddingHorizontal: wp('1.5%'),
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',

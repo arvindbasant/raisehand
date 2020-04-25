@@ -7,6 +7,7 @@ import Colors from '../constants/Colors';
 import {validateEmail} from "../utils";
 import ValidationMessageBox from "../components/ValidationMessageBox";
 import log from "../apis/logApi";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 function PasswordResetScreen({navigation}) {
@@ -56,7 +57,7 @@ function PasswordResetScreen({navigation}) {
             onBlur={() => setShowRequired({...showRequired, email: email.trim() === ''})}
             placeholder="Email"
             icon="ios-mail"/>
-          <ButtonField onPress={resetPassword} text="Reset Password"/>
+          <ButtonField onPress={resetPassword} text="Reset Password" style={{marginTop: wp('3%')}}/>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    padding: 20,
+    padding: wp('10%'),
     justifyContent: 'center',
   },
 })

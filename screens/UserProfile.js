@@ -21,6 +21,7 @@ import LocationInputField from "../components/LocationInputField";
 import * as WebBrowser from 'expo-web-browser';
 import {getUser, updateUser} from "../apis/userApis";
 import {User} from "../context/types";
+import { widthPercentageToDP as wp , heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const UserProfile = () => {
 
@@ -113,18 +114,18 @@ const UserProfile = () => {
         flexDirection: 'column',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        paddingTop: 50
+        paddingTop: wp('10%')
       }}>
-        <InputLink onPress={clearStateAndSignOut} text={'Sign out!'} style={{fontSize: 22}}/>
+        <InputLink onPress={clearStateAndSignOut} text={'Sign out!'} style={{fontSize: wp('5.5%')}}/>
       </View>
     );
   }
 
   const PrivacyLink = () => (
     <View style={{
-      paddingTop: 50,
-      justifyContent: 'center',
-      alignItems: 'center'
+      flex: 1,
+      alignItems: 'center',
+      paddingTop: wp('10%')
     }}>
       <InputLink
         text={'Privacy'}
@@ -156,9 +157,9 @@ const UserProfile = () => {
       <View style={styles.userCard}>
         {
           renderIfElse(user.photoURL,
-            () => <Avatar source={{uri: `${user.photoURL}?type=large`}} rounded size={'xlarge'}/>)
+            () => <Avatar source={{uri: `${user.photoURL}?type=large`}} rounded size={wp('30%')}/>)
             .elseRender(() => (
-                <Avatar rounded title={getAvatarText()} size={'xlarge'}/>
+                <Avatar rounded title={getAvatarText()} size={wp('30%')}/>
               )
             )
         }
@@ -233,16 +234,13 @@ const UserProfile = () => {
                       style={{
                         display: 'flex',
                         alignItems: 'flex-end',
-                        paddingTop: 10,
-                        paddingBottom: 20
+                        paddingTop: wp('2%'),
+                        paddingBottom: wp('4%')
                       }}
                     >
-                      <InputLink onPress={cancelEdit} text={'Cancel'} style={{fontSize: 16, paddingTop: 10}}/>
+                      <InputLink onPress={cancelEdit} text={'Cancel'} style={{fontSize: wp('3%'), paddingTop: wp('2%')}}/>
                     </View>
-                    <View style={{
-                      paddingLeft: 40,
-                      paddingRight: 40,
-                    }}>
+                    <View>
                       <ButtonField onPress={updateUserData} text="Update"/>
                     </View>
                     <SignOutLink/>
@@ -264,7 +262,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     display: 'flex',
     flex: 1,
-    padding: 20,
+    padding: wp('4%'),
   },
   userCard: {
     display: 'flex',
@@ -274,23 +272,25 @@ const styles = StyleSheet.create({
   },
   nameText: {
     fontFamily: 'lato-bold',
-    fontSize: 22,
+    fontSize: wp('5.5%'),
     color: Colors.textDark,
-    lineHeight: 40,
-    marginTop: 20
+    lineHeight: wp('8%'),
+    marginTop: wp('5%'),
   },
   addressText: {
     fontFamily: 'lato',
-    fontSize: 14,
+    fontSize: wp('3%'),
     color: Colors.textDark,
-    lineHeight: 20,
-    textAlign: 'center'
+    lineHeight: wp('4%'),
+    textAlign: 'center',
+    marginHorizontal: wp('10%')
+
   },
   mobileText: {
     fontFamily: 'lato-bold',
-    fontSize: 14,
+    fontSize: wp('3%'),
     color: Colors.textDark,
-    lineHeight: 20,
+    lineHeight: wp('4%'),
   }
 });
 

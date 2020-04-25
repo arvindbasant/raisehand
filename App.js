@@ -38,6 +38,7 @@ const theme = {
 const ScreenOptions = {
   headerStyle: {
     backgroundColor: Colors.tintColor,
+    height: hp('10%')
   },
   headerTintColor: Colors.textLight,
   headerTitleStyle: {

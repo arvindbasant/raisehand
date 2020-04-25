@@ -11,7 +11,7 @@ const CheckBoxField = ({title, checked, onPress}) => {
   return (
     <CheckBox
       containerStyle={styles.formElemContainerStyle}
-      size={wp('5.5%')}
+      size={wp('4.5%')}
       title={title}
       checked={checked}
       onPress={onPress}
@@ -38,8 +38,8 @@ const InputLink = ({onPress, text, style}) => {
       <Text style={[{
         color: Colors.brand,
         fontFamily: 'lato-bold',
-        fontSize: wp('2.5%'),
-        padding: wp('1.5%')
+        fontSize: wp('2.75%'),
+        padding: wp('1.5%'),
       }, style]}>{text}</Text>
     </TouchableOpacity>
   );
@@ -72,15 +72,13 @@ const InputField = ({onChange, value, placeholder, icon, showRequired, style, ..
   );
 };
 
-const ButtonField = ({onPress, text, icon}) => {
+const ButtonField = ({onPress, text, icon, style}) => {
   return (
-    <TouchableOpacity style={styles.buttonField} onPress={onPress}>
+    <TouchableOpacity style={[styles.buttonField, style]} onPress={onPress}>
       <Text style={{
-        fontFamily: 'lato',
+        fontFamily: 'lato-bold',
         fontSize: wp('3%'),
         color: Colors.textLight,
-        fontWeight: '600',
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'
       }}>
@@ -145,7 +143,7 @@ const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
     flex: 1,
-    height: wp('8%'),
+    height: wp('6.5%'),
     justifyContent: 'center'
   },
   buttonField: {
@@ -153,9 +151,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    height: wp('10%'),
-    width: wp('80%'),
-    borderRadius: wp('5%'),
+    height: wp('11%'),
+    borderRadius: wp('5.5%'),
     paddingLeft: wp('3%'),
     paddingRight: wp('3%'),
     marginBottom: wp('2%'),
@@ -166,7 +163,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.5,
     shadowRadius: 5,
-    elevation: 4,
+    elevation: 6,
     backgroundColor: Colors.brand
 
   },
@@ -196,7 +193,7 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
     backgroundColor: Colors.textLight,
     marginBottom: hp('1%'),
-    padding: wp('2%'),
+    padding: wp('1%'),
   },
   shadow: {
     shadowColor: Colors.shadow,
@@ -210,9 +207,9 @@ const styles = StyleSheet.create({
   },
   asterisk: {
     fontFamily: 'lato',
-    fontSize: 24,
+    fontSize: wp('5%'),
     color: 'red',
-    paddingRight: 5
+    paddingRight: wp('1%')
   }
 });
 

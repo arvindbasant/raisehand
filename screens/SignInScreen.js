@@ -41,13 +41,13 @@ function SignInScreen({navigation}) {
       {{flexGrow: 1, height: '100%'}}>
       <ScrollView bounces={false} contentContainerStyle={styles.container}>
         <View style={styles.content}>
-          <Logo/>
+          <Logo style={{marginBottom: wp('5%')}}/>
           <GoogleButton onPress={() => socialSignIn('google')} text="Sign in with Google"
                         icon="ios-arrow-round-forward"/>
           <FacebookButton onPress={() => socialSignIn('facebook')} text="Continue with Facebook"
                           icon="ios-arrow-round-forward"/>
-          <View style={{alignItems: 'center', paddingBottom: 10}}>
-            <Text style={{color: Colors.border}}>──────── OR ────────</Text>
+          <View style={{alignItems: 'center', paddingBottom: wp('2%')}}>
+            <Text style={{color: Colors.border, fontSize: wp('3%')}}>──────── OR ────────</Text>
           </View>
           {renderIf(error !== '', () => <ValidationMessageBox error={error}/>)}
           <InputField

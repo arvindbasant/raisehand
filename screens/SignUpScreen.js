@@ -12,6 +12,7 @@ import Logo from '../components/Logo';
 import Colors from '../constants/Colors';
 import ValidationMessageBox from "../components/ValidationMessageBox";
 import {validateEmail, validatePassword, isEmpty} from "../utils";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 function SignUpScreen() {
   const [username, setUsername] = React.useState('');
@@ -81,7 +82,7 @@ function SignUpScreen() {
             onBlur={() => setShowRequired({...showRequired, confirmPassword: confirmPassword.trim() === ''})}
             value={confirmPassword} placeholder="Confirm Password" icon="ios-lock"
           />
-          <ButtonField onPress={createAccount} text="Register" icon="ios-arrow-round-forward"/>
+          <ButtonField onPress={createAccount} text="Register" icon="ios-arrow-round-forward" style={{marginTop: wp('3%')}}/>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    padding: 20,
+    padding: wp('10%'),
     justifyContent: 'center',
   },
 })
