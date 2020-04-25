@@ -5,17 +5,20 @@ import {Ionicons} from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import {renderIf} from "../utils/renderIf";
 import GoogleIcon from "./GoogleIcon";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const CheckBoxField = ({title, checked, onPress}) => {
   return (
     <CheckBox
       containerStyle={styles.formElemContainerStyle}
+      size={wp('5.5%')}
       title={title}
       checked={checked}
       onPress={onPress}
       textStyle={{
         color: Colors.textDark,
-        fontFamily: 'lato',
+        fontFamily: 'lato-bold',
+        fontSize: wp('2.75%')
       }}
     />
   );
@@ -35,8 +38,8 @@ const InputLink = ({onPress, text, style}) => {
       <Text style={[{
         color: Colors.brand,
         fontFamily: 'lato-bold',
-        fontSize: 14,
-        padding: 5
+        fontSize: wp('2.5%'),
+        padding: wp('1.5%')
       }, style]}>{text}</Text>
     </TouchableOpacity>
   );
@@ -45,8 +48,8 @@ const InputLink = ({onPress, text, style}) => {
 const InputField = ({onChange, value, placeholder, icon, showRequired, style, ...rest}) => {
   return (
     <View style={[styles.inputTextWrapper, styles.shadow]}>
-      <View style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: 25}}>
-        <Ionicons name={icon} size={22} color={Colors.brand}/>
+      <View style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: wp('5.5%')}}>
+        <Ionicons name={icon} size={wp('5.5%')} color={Colors.brand}/>
       </View>
       <TextInput
         style={[styles.inputText, style]}
@@ -74,7 +77,7 @@ const ButtonField = ({onPress, text, icon}) => {
     <TouchableOpacity style={styles.buttonField} onPress={onPress}>
       <Text style={{
         fontFamily: 'lato',
-        fontSize: 16,
+        fontSize: wp('3%'),
         color: Colors.textLight,
         fontWeight: '600',
         display: 'flex',
@@ -84,9 +87,9 @@ const ButtonField = ({onPress, text, icon}) => {
         {text}
       </Text>
       {icon && <View style={{
-        padding: 8,
+        padding: wp('1%'),
       }}>
-        <Ionicons name={icon} size={32} color={Colors.textLight}/>
+        <Ionicons name={icon} size={wp('7%')} color={Colors.textLight}/>
       </View>}
     </TouchableOpacity>
 
@@ -98,13 +101,12 @@ const GoogleButton = ({onPress, text}) => {
     <TouchableOpacity style={[styles.buttonField, {
       backgroundColor: 'white',
       justifyContent: 'center',
-      height: 50,
     }]} onPress={onPress}>
       <GoogleIcon/>
       <Text style={{
         fontFamily: 'roboto-medium',
-        fontSize: 14,
-        paddingLeft: 32,
+        fontSize: wp('3%'),
+        paddingLeft: wp('6%'),
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -119,11 +121,11 @@ const GoogleButton = ({onPress, text}) => {
 const FacebookButton = ({onPress, text}) => {
   return (
     <TouchableOpacity style={[styles.buttonField, {backgroundColor: '#4267B2'}]} onPress={onPress}>
-      <Image source={require('../assets/images/f_logo_RGB-White_72.png')} style={{width: 28, height: 28}}/>
+      <Image source={require('../assets/images/f_logo_RGB-White_72.png')} style={{width: wp('6%'), height: wp('6%')}}/>
       <Text style={{
         fontFamily: 'roboto-medium',
-        fontSize: 14,
-        paddingLeft: 32,
+        fontSize: wp('3%'),
+        paddingLeft: wp('6%'),
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -143,7 +145,7 @@ const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
     flex: 1,
-    height: 35,
+    height: wp('8%'),
     justifyContent: 'center'
   },
   buttonField: {
@@ -151,12 +153,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 50,
-    width: '100%',
-    borderRadius: 25,
-    paddingLeft: 15,
-    paddingRight: 15,
-    marginBottom: 10,
+    height: wp('10%'),
+    width: wp('80%'),
+    borderRadius: wp('5%'),
+    paddingLeft: wp('3%'),
+    paddingRight: wp('3%'),
+    marginBottom: wp('2%'),
     shadowColor: Colors.shadow,
     shadowOffset: {
       width: 0,
@@ -169,35 +171,32 @@ const styles = StyleSheet.create({
 
   },
   inputTextWrapper: {
-    display: 'flex',
     flexDirection: 'row',
-    minHeight: 55,
-    height: 'auto',
-    borderRadius: 5,
+    borderRadius: wp('1%'),
     borderWidth: 0,
     borderColor: Colors.border,
     backgroundColor: Colors.textLight,
-    marginBottom: 10,
-    paddingLeft: 10,
+    marginBottom: hp('1%'),
+    paddingLeft: wp('2%'),
   },
   inputText: {
     flex: 1,
     fontFamily: 'lato',
     backgroundColor: Colors.textLight,
-    paddingLeft: 5,
+    paddingLeft: wp('1%'),
     color: Colors.textDark,
-    height: 55,
-    fontSize: 16,
-    marginRight: 15,
+    height: wp('12%'),
+    fontSize: wp('3%'),
+    marginRight: wp('3%'),
   },
   card: {
     display: 'flex',
-    borderRadius: 5,
+    borderRadius: wp('1%'),
     borderWidth: 0,
     borderColor: 'transparent',
     backgroundColor: Colors.textLight,
-    marginBottom: 10,
-    padding: 5,
+    marginBottom: hp('1%'),
+    padding: wp('2%'),
   },
   shadow: {
     shadowColor: Colors.shadow,

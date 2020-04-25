@@ -38,6 +38,7 @@
     "react-native-elements": "^1.2.7",
     "react-native-geocoding": "^0.4.0",
     "react-native-gesture-handler": "~1.6.0",
+    "react-native-responsive-screen": "^1.4.1",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "~2.2.0",
     "react-native-segmented-control-tab": "^3.4.1",

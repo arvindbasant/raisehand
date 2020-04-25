@@ -1,42 +1,42 @@
 import React from 'react';
-import {Icon, Divider} from 'react-native-elements';
-import {View, Text, TouchableOpacity, StyleSheet, Linking, Platform} from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
-import {formatDateTime} from '../utils';
-import {TICKET_STATUS} from "../context/types";
+import { Icon, Divider } from 'react-native-elements';
+import { View, Text, TouchableOpacity, StyleSheet, Linking, Platform } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { formatDateTime } from '../utils';
+import { TICKET_STATUS } from "../context/types";
 import Screens from "../constants/Screens";
 import StatusBanner from "./StatusBanner";
 import Colors from '../constants/Colors';
 import * as Animatable from 'react-native-animatable';
-import {renderIf, renderIfElse} from '../utils/renderIf';
+import { renderIf, renderIfElse } from '../utils/renderIf';
 import _ from 'lodash';
-import {CardView} from "./FormElements";
+import { CardView } from "./FormElements";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-const NameField = ({name}) => {
+const NameField = ({ name }) => {
   return (
-    <View style={{display: 'flex', alignItems: 'center', paddingTop: 5}}>
+    <View style={{ display: 'flex', alignItems: 'center', paddingTop: 5 }}>
       <Text style={styles.nameText}>{name}</Text>
     </View>
   );
 };
 
-const MobileField = ({mobile}) => {
+const MobileField = ({ mobile }) => {
   return (
-    <View style={{alignItems: 'center', flexDirection: 'row', justifyContent: 'center'}}>
+    <View style={{ alignItems: 'center', flexDirection: 'row', justifyContent: 'center', paddingVertical: wp('1.5%') }}>
       <View style={{
         justifyContent: 'center',
         alignItems: 'center',
-        paddingBottom: 6,
-        paddingRight: 6
+        paddingHorizontal: wp('1%')
       }}>
-        <Ionicons name="md-call" size={14} color={Colors.textLight}/>
+        <Ionicons name="md-call" size={wp('3%')} color={Colors.border} />
       </View>
       <Text style={[styles.mobileText]}>{mobile}</Text>
     </View>
   );
 };
 
-const IconBadge = ({children, text}) => {
+const IconBadge = ({ children, text }) => {
   return (
     <View
       style={{
@@ -44,50 +44,50 @@ const IconBadge = ({children, text}) => {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 4,
+        padding: wp('1%'),
         width: 'auto',
-        borderRadius: 12.5,
+        borderRadius: wp('3%'),
         borderColor: Colors.textLight,
         borderWidth: 1,
         backgroundColor: '#009fc7',
-        margin: 4
+        margin: wp('1%'),
       }}
     >
       {children}
       <Text style={{
-        fontSize: 10,
+        fontSize: wp('2.5%'),
         color: 'white',
-        fontWeight: '600',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingRight: 3,
-        paddingLeft: 3
+        paddingHorizontal: wp('0.75%'),
+        textTransform: 'uppercase'
       }}>{text}</Text>
     </View>
   );
 };
 
-const AdultsChildren = ({adults, children}) => {
+const AdultsChildren = ({ adults, children }) => {
   return (
     <View style={{
       display: 'flex',
       flexDirection: 'row',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      fontFamily: 'lato-bold'
     }}>
       <IconBadge text={`${adults} ADULTS`}>
-        <Icon iconStyle={{fontSize: 14}} name={'users'} type='font-awesome' color='white'/>
+        <Icon iconStyle={{ fontSize: wp('3%') }} name={'users'} type='font-awesome' color='white' />
       </IconBadge>
       {renderIf(children > 0, () => (
         <IconBadge text={`${children} CHILDREN`}>
-          <Icon iconStyle={{fontSize: 14}} name={'child'} type='font-awesome' color='white'/>
+          <Icon iconStyle={{ fontSize: wp('3%') }} name={'child'} type='font-awesome' color='white' />
         </IconBadge>
       ))}
     </View>
   )
 };
 
-const ItemsList = ({items}) => {
+const ItemsList = ({ items }) => {
   let icon;
 
   return (
@@ -104,7 +104,7 @@ const ItemsList = ({items}) => {
             <IconBadge text={item}>
               <Ionicons
                 name={icon}
-                size={14}
+                size={wp('3%')}
                 color='white'
               />
             </IconBadge>
@@ -115,11 +115,11 @@ const ItemsList = ({items}) => {
   )
 }
 
-const UserLocation = ({location}) => {
+const UserLocation = ({ location }) => {
   const handlePressDirections = async () => {
     try {
       if (location.fetchedLocation.error === '' && location.fetchedLocation.location !== '') {
-        const scheme = Platform.select({ios: 'maps:0,0?q=', android: 'geo:0,0?q='});
+        const scheme = Platform.select({ ios: 'maps:0,0?q=', android: 'geo:0,0?q=' });
         const latLng = `${location.fetchedLocation.location.latitude},${location.fetchedLocation.location.longitude}`;
         const label = 'Custom Label';
         const url = Platform.select({
@@ -137,16 +137,14 @@ const UserLocation = ({location}) => {
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'column',
-      paddingTop: 10,
-      paddingBottom: 10,
-      paddingLeft: 5,
-      paddingRight: 5
+      paddingVertical: wp('2%'),
+      paddingHorizontal: wp('1%'),
     }}>
       <TouchableOpacity style={{
         display: 'flex',
-        height: 28,
-        width: 28,
-        borderRadius: 14,
+        height: wp('6%'),
+        width: wp('6%'),
+        borderRadius: wp('3%'),
         backgroundColor: Colors.tintColor,
         justifyContent: 'center',
         alignItems: 'center',
@@ -158,17 +156,17 @@ const UserLocation = ({location}) => {
         shadowOpacity: 0.5,
         shadowRadius: 5,
         elevation: 8,
-        margin: 2,
+        margin: wp('0.75%')
       }} onPress={handlePressDirections}>
-        <Icon name='location' type='evilicon' color={Colors.textLight} size={26}/>
+        <Icon name='location' type='evilicon' color={Colors.textLight} size={wp('5%')} />
       </TouchableOpacity>
       <Text
         style={{
-          fontSize: 10,
-          fontWeight: '400',
+          fontSize: wp('2.5%'),
+          color: Colors.border,
+          fontFamily: 'lato',
           display: 'flex',
           justifyContent: 'center',
-          color: 'white',
           textAlign: 'center'
         }}
       >
@@ -178,18 +176,17 @@ const UserLocation = ({location}) => {
   )
 }
 
-const DateTimeLabel = ({date}) => (<View
-  style={{position: 'absolute'}}>
+const DateTimeLabel = ({ date }) => (<View>
   <Text
     style={{
-      fontSize: 10,
+      fontSize: wp('2%'),
       color: Colors.border,
       fontFamily: 'lato-bold',
-      padding: 10
+      padding: wp('2%'),
     }}>{formatDateTime(date)}</Text>
 </View>);
 
-const Appreciation = ({message, icon}) => (
+const Appreciation = ({ message, icon }) => (
   <View
     style={{
       display: 'flex',
@@ -198,35 +195,35 @@ const Appreciation = ({message, icon}) => (
       flexDirection: 'row',
     }}
   >
-    <Ionicons style={{paddingRight: 20}} name={icon} color={Colors.textLight} size={24}/>
+    <Ionicons style={{ paddingRight: 20 }} name={icon} color={Colors.textLight} size={24} />
     <Text style={{
       color: 'white',
-      fontSize: 16,
+      fontSize: wp('3%'),
       fontFamily: 'lato'
     }}>{message}</Text>
   </View>
 );
 
-const ShowAppreciations = ({screen, status}) => {
+const ShowAppreciations = ({ screen, status }) => {
   return (
     <View>
       {renderIfElse(screen === Screens.SERVICE, () => (
-        <Appreciation message={'Thanks for your service!!'} icon={'md-thumbs-up'}/>
+        <Appreciation message={'Thanks for your service!!'} icon={'md-thumbs-up'} />
       )).elseRender(() => (renderIfElse(status === TICKET_STATUS.CANCELLED,
-        () => <Appreciation message={'Request cancelled.'} icon={'ios-notifications'}/>)
-        .elseRender(() => <Appreciation message={'Thanks for using raisehand!!'} icon={'md-happy'}/>)))}
+        () => <Appreciation message={'Request cancelled.'} icon={'ios-notifications'} />)
+        .elseRender(() => <Appreciation message={'Thanks for using raisehand!!'} icon={'md-happy'} />)))}
     </View>
   )
 };
 
-const CardFooter = ({actions, ticket, screen, onPress}) => (<View style={styles.buttonContainer}>{
+const CardFooter = ({ actions, ticket, screen, onPress }) => (<View style={styles.buttonContainer}>{
   actions.length ? actions.map((action, index) => (
     <TouchableOpacity key={index} onPress={() => onPress(ticket, `${screen.toUpperCase()}_${action}`)}>
       <View style={index ? styles.outlinedButton : styles.filledButton}>
         <Text style={styles.buttonText}>{action}</Text>
       </View>
     </TouchableOpacity>
-  )) : <ShowAppreciations screen={screen} status={ticket.info.status}/>
+  )) : <ShowAppreciations screen={screen} status={ticket.info.status} />
 }</View>);
 
 const getTicketStatusLabel = (screen, status) => {
@@ -235,8 +232,8 @@ const getTicketStatusLabel = (screen, status) => {
   return status;
 }
 
-const TicketCard = ({ticket, onPress, getActions, screen}) => {
-  const {status, createdDate, name, mobile, adults, items, location, children} = ticket.info;
+const TicketCard = ({ ticket, onPress, getActions, screen }) => {
+  const { status, createdDate, name, mobile, adults, items, location, children } = ticket.info;
   let statusLabel = getTicketStatusLabel(screen, status);
   _.debounce(onPress);
   const actions = getActions();
@@ -247,25 +244,22 @@ const TicketCard = ({ticket, onPress, getActions, screen}) => {
       delay={100}
       useNativeDriver={true}
     >
+
       <CardView style={styles.container}>
-        <DateTimeLabel date={createdDate}/>
-        <View
-          style={{
-            right: 0,
-            position: 'absolute',
-            paddingRight: 36,
-            top: 25
-          }}
-        >
-          <StatusBanner label={statusLabel}/>
+        <View style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between'
+        }}>
+          <DateTimeLabel date={createdDate} />
+          <NameField name={name} />
+          <StatusBanner label={statusLabel} />
         </View>
-        <NameField name={name}/>
-        <MobileField mobile={mobile}/>
-        <AdultsChildren adults={adults} children={children}/>
-        <ItemsList items={items}/>
-        <UserLocation location={location}/>
-        <Divider style={{backgroundColor: 'gray', marginTop: 10, marginBottom: 2}}/>
-        <CardFooter actions={actions} ticket={ticket} screen={screen} onPress={onPress}/>
+        <MobileField mobile={mobile} />
+        <AdultsChildren adults={adults} children={children} />
+        <ItemsList items={items} />
+        <UserLocation location={location} />
+        <Divider style={{ backgroundColor: 'gray', marginTop: wp('2%'), marginBottom: wp('0.5%') }} />
+        <CardFooter actions={actions} ticket={ticket} screen={screen} onPress={onPress} />
       </CardView>
     </Animatable.View>
   );
@@ -276,17 +270,17 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    margin: 5,
-    marginTop: 10
+    margin: wp('1%'),
+    marginTop: wp('2%'),
   },
   outlinedButton: {
     borderWidth: 1,
     borderColor: Colors.textLight,
     backgroundColor: 'transparent',
-    height: 32,
-    width: 100,
-    borderRadius: 16,
-    padding: 8,
+    height: wp('7%'),
+    width: wp('20%'),
+    borderRadius: wp('3.5%'),
+    padding: wp('1.5%'),
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -295,23 +289,23 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.tintColor,
     backgroundColor: Colors.tintColor,
-    height: 32,
-    width: 100,
-    borderRadius: 16,
-    padding: 8,
+    height: wp('8%'),
+    width: wp('30%'),
+    borderRadius: wp('4%'),
+    padding: wp('1.5%'),
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
   buttonText: {
     color: Colors.textLight,
-    fontSize: 11,
-    fontWeight: '600'
+    fontSize: wp('2.5%'),
+    fontFamily: 'lato-bold'
   },
   container: {
     backgroundColor: Colors.dark,
-    borderRadius: 4,
-    borderWidth: 1,
+    borderRadius: wp('1%'),
+    borderWidth: wp('0.25%'),
     borderColor: 'transparent',
     shadowColor: Colors.shadow,
     shadowOffset: {
@@ -321,24 +315,22 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 5,
     elevation: 8,
-    marginLeft: 15,
-    marginRight: 15,
-    marginTop: 5
+    marginHorizontal: wp('5%'),
+    marginTop: wp('1%'),
   },
   nameText: {
     color: Colors.textLight,
-    fontSize: 18,
+    fontSize: wp('4%'),
     fontFamily: 'lato-bold',
     textAlign: 'center',
-    width: 175,
-    paddingBottom: 5
+    width: wp('35%'),
+    paddingBottom: wp('1%'),
   },
   mobileText: {
-    color: Colors.textLight,
-    fontSize: 12,
+    color: Colors.border,
+    fontSize: wp('2.75%'),
     fontFamily: 'lato-bold',
-    paddingBottom: 10,
   }
 });
 
-export {TicketCard};
+export { TicketCard };

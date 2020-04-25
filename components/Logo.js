@@ -3,21 +3,22 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const Logo = () => (
   <View style={{
-    height: 100,
+    marginTop: hp('8%'),
     display: 'flex', 
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
   }}>
-    <View style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingRight: 10}}>
-      <Ionicons name="ios-hand" size={64} color="#e91e63" />
+    <View style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingRight: wp('2.5%')}}>
+      <Ionicons name="ios-hand" size={wp('12.5%')} color="#e91e63" />
     </View>
     <Text style={{
       color: '#e91e63',
-      fontSize: 32,
+      fontSize: wp('6.2%'),
       fontFamily: 'lato'
     }}>raisehand</Text>
   </View>

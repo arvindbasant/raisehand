@@ -7,6 +7,7 @@ import Colors from '../constants/Colors';
 import HelpScreen from '../screens/HelpScreen';
 import UserProfile from '../screens/UserProfile';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { widthPercentageToDP as wp , heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 const BottomTab = createBottomTabNavigator();
@@ -22,6 +23,9 @@ export default function BottomTabNavigator({ navigation, route }) {
         activeBackgroundColor: Colors.background,
         inactiveBackgroundColor: Colors.background,
         activeTintColor: Colors.tintColor,
+        style:{
+          height: hp('8%'),
+        }
       }}
     >
       <BottomTab.Screen

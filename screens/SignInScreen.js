@@ -8,6 +8,7 @@ import Colors from '../constants/Colors';
 import {validateEmail} from "../utils";
 import ValidationMessageBox from "../components/ValidationMessageBox";
 import {renderIf} from "../utils/renderIf";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 function SignInScreen({navigation}) {
   const [username, setUsername] = React.useState('');
@@ -73,7 +74,7 @@ function SignInScreen({navigation}) {
             <InputLink onPress={resetPassword} text="Forgot Password?"/>
           </View>
           <ButtonField onPress={onSignInPress} text="Login" icon="ios-arrow-round-forward"/>
-          <View style={styles.registerLink}>
+          <View style={styles.registerLinkContainer}>
             <Text style={styles.registerLinkLabel}>
               Don't have an account?
             </Text>
@@ -89,23 +90,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   content: {
-    flex: 1,
-    padding: 20,
-    justifyContent: 'center',
+    width: wp('80%'),
+    paddingTop: 20,
+    
   },
 
-  registerLink: {
+  registerLinkContainer: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
-    marginBottom: 50
+    marginBottom: 50,
   },
   registerLinkLabel: {
-    fontSize: 12,
+    fontSize: wp('2.5%'),
     fontWeight: '600',
     fontFamily: 'lato-bold',
     color: Colors.textDark,

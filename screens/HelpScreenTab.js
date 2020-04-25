@@ -18,6 +18,7 @@ import AuthContext from "../context/authContext";
 import log from '../apis/logApi';
 import Loader from "../components/Loader";
 import LocationInputField from "../components/LocationInputField";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const HelpScreenTab = () => {
   const {state, dispatch} = useStore();
@@ -124,12 +125,12 @@ const HelpScreenTab = () => {
                               triggerFetch={ticket.location.enteredLocation === ''}/>
           <CardView>
             <View style={styles.counterWrapper}>
-              <Icon iconStyle={{fontSize: 24}} name="user" type='font-awesome' color={Colors.brand}/>
+              <Icon iconStyle={{fontSize: wp('7%')}} name="user" type='font-awesome' color={Colors.brand}/>
               <Text style={styles.counterLabel}>Adults</Text>
               <Counter start={ticket.adults} min={1} max={10} onChange={count => setValue('adults', count)}/>
             </View>
             <View style={styles.counterWrapper}>
-              <Icon iconStyle={{fontSize: 24}} name="child" type='font-awesome' color={Colors.brand}/>
+              <Icon iconStyle={{fontSize: wp('7%')}} name="child" type='font-awesome' color={Colors.brand}/>
               <Text style={styles.counterLabel}>Children</Text>
               <Counter start={ticket.children} min={0} max={5} onChange={count => setValue('children', count)}/>
             </View>
@@ -164,9 +165,8 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 5,
+    paddingHorizontal: wp('5.5%'),
+    paddingTop: hp('1%'),
     backgroundColor: Colors.background
   },
   checkboxWrapper: {
@@ -179,17 +179,18 @@ const styles = StyleSheet.create({
     marginRight: 30
   },
   counterWrapper: {
-    padding: 10,
+    padding: wp('2%'),
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center'
   },
   counterLabel: {
-    fontSize: 12,
+    fontFamily: 'lato-bold',
+    fontSize: wp('2.75%'),
     color: Colors.brand,
     fontWeight: '600',
-    textTransform: 'uppercase'
+    textTransform: 'capitalize'
   }
 
 });

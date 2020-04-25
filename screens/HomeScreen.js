@@ -1,27 +1,27 @@
 import * as React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
+import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import Colors from '../constants/Colors';
 import Logo from '../components/Logo';
-import {sample} from 'lodash';
+import { sample } from 'lodash';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <Logo/>
+        <Logo />
         <View style={{
-          display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          margin: 30
+          marginVertical: wp('5%')
         }}>
-          <Quote/>
+          <Quote />
         </View>
 
         <View style={styles.about}>
           <Text style={styles.aboutText}><Text
-            style={{color: Colors.tintColor}}>raisehand!! </Text> is a platform to help people
+            style={{ color: Colors.tintColor }}>raisehand!! </Text> is a platform to help people
             during difficult time such as pandemic like COVID-19. It uses location-based services to connect a help
             seeker with help provider. A person in need calls out for help by sharing his location using which essential
             services are delivered.</Text>
@@ -35,7 +35,7 @@ export default function HomeScreen() {
           <Text
             style={{
               fontFamily: 'lora-italic',
-              fontSize: 16,
+              fontSize: wp('3%'),
               color: Colors.tintColor
             }}
           >Write us @ programdesignlab@gmail.com</Text>
@@ -56,7 +56,7 @@ const Quote = () => {
     <Text
       style={{
         color: Colors.tintColor,
-        fontSize: 32,
+        fontSize: wp('6%'),
         fontFamily: 'lora-italic'
       }}
     >
@@ -71,17 +71,16 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   contentContainer: {
-    paddingTop: 40,
-    flex: 1
+    flex: 1,
+    marginHorizontal: wp('10%'),
+
   },
   about: {
     alignItems: 'center',
-    marginHorizontal: 50,
   },
   aboutText: {
-    fontSize: 18,
+    fontSize: wp('3.25%'),
     color: Colors.textDark,
-    lineHeight: 24,
     fontFamily: 'lora-italic',
     textAlign: 'justify'
 

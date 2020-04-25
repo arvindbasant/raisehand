@@ -22,6 +22,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import * as GoogleSignIn from 'expo-google-sign-in';
 import * as Facebook from 'expo-facebook';
 import Constants from "expo-constants";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const Stack = createStackNavigator();
 
@@ -40,9 +41,8 @@ const ScreenOptions = {
   },
   headerTintColor: Colors.textLight,
   headerTitleStyle: {
-    fontWeight: '600',
     fontFamily: 'lato-bold',
-    fontSize: 16,
+    fontSize: wp('3%'),
   },
 };
 
@@ -202,7 +202,7 @@ export default function App() {
             <ThemeProvider theme={theme}>
               <React.Fragment>
                 <View style={styles.container}>
-                  {<StatusBar translucent backgroundColor={Colors.brand}/>}
+                  {<StatusBar translucent backgroundColor={Colors.brand} />}
                   <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
                     <Stack.Navigator
                       screenOptions={{

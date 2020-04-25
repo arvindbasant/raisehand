@@ -9,6 +9,8 @@ import log from "../apis/logApi";
 import * as Permissions from "expo-permissions";
 import * as Location from "expo-location";
 import Constants from "expo-constants";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 
 const LocationInputField = ({onChange, location, triggerFetch = false, style = undefined, ...rest}) => {
 
@@ -74,8 +76,8 @@ const LocationInputField = ({onChange, location, triggerFetch = false, style = u
   return (
     <View style={[styles.inputTextWrapper, styles.shadow, {flexDirection: 'column'}]}>
       <View style={{flexDirection: 'row', flex: 1}}>
-        <View style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: 25}}>
-          <Ionicons name={'md-map'} size={22} color={Colors.brand}/>
+        <View style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: wp('5.5%')}}>
+          <Ionicons name={'md-map'} size={wp('5.5%')} color={Colors.brand}/>
         </View>
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
           <TextInput
@@ -102,11 +104,11 @@ const LocationInputField = ({onChange, location, triggerFetch = false, style = u
       {renderIf(showRequired, () => (
         <View style={{borderTopColor: Colors.border, borderTopWidth: 1, marginRight: 10}}>
           <TouchableOpacity onPress={() => setTriggerFetchLocation(true)}
-                            style={{flexDirection: 'row', flex: 1, paddingTop: 15, paddingBottom: 15}}>
-            <View style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: 25}}>
-              <Icon name='location' type='evilicon' color={Colors.textDark} size={16}/>
+                            style={{flexDirection: 'row', flex: 1, paddingVertical:wp('3%')}}>
+            <View style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: wp('5%')}}>
+              <Icon name='location' type='evilicon' color={Colors.textDark} size={wp('4%')}/>
             </View>
-            <LatoText style={{fontSize: 12, color:Colors.tintColor}}>Get current location</LatoText>
+            <LatoText style={{fontSize: wp('2.5%'), color:Colors.tintColor}}>Get current location</LatoText>
           </TouchableOpacity>
         </View>
       ))}
@@ -117,26 +119,23 @@ const LocationInputField = ({onChange, location, triggerFetch = false, style = u
 const styles = StyleSheet.create({
 
   inputTextWrapper: {
-    display: 'flex',
     flexDirection: 'row',
-    minHeight: 55,
-    height: 'auto',
-    borderRadius: 5,
+    borderRadius: wp('1%'),
     borderWidth: 0,
     borderColor: Colors.border,
     backgroundColor: Colors.textLight,
-    marginBottom: 10,
-    paddingLeft: 10,
+    marginBottom: hp('1%'),
+    paddingLeft: wp('2%'),
   },
   inputText: {
     flex: 1,
     fontFamily: 'lato',
     backgroundColor: Colors.textLight,
-    paddingLeft: 5,
+    paddingLeft: wp('1%'),
     color: Colors.textDark,
-    height: 55,
-    fontSize: 16,
-    marginRight: 15,
+    height: wp('12%'),
+    fontSize: wp('3%'),
+    marginRight: wp('3%'),
   },
   shadow: {
     shadowColor: Colors.shadow,

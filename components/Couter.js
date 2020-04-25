@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { useState } from 'react';
 import Colors from '../constants/Colors';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const CounterButton = ({ min, max, count, onPress, type, minus, plus, minusIcon, plusIcon }) => {
 
@@ -91,28 +92,28 @@ const Styles = StyleSheet.create({
   },
 
   countText: {
-    fontSize: 16,
+    fontSize: wp('3.5%'),
     color: Colors.textDark
   },
 
   count: {
-    minWidth: 40,
+    minWidth: wp('8%'),
     alignItems: 'center',
     justifyContent: 'center'
   },
 
   touchable: {
-    minWidth: 35,
-    minHeight: 35,
-    borderWidth: 1,
+    minWidth: wp('7%'),
+    minHeight: wp('7%'),
+    borderWidth: wp('0.25%'),
     borderColor: Colors.brand,
-    borderRadius: 5,
+    borderRadius: wp('1%'),
     alignItems: 'center',
     justifyContent: 'center'
   },
 
   buttonText: {
-    fontSize: 15,
+    fontSize: wp('4%'),
     color: Colors.brand
   }
 });
