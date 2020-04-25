@@ -35,7 +35,7 @@ export default function HomeScreen() {
           <Text
             style={{
               fontFamily: 'lora-italic',
-              fontSize: wp('3%'),
+              fontSize: wp('3.5%'),
               color: Colors.tintColor
             }}
           >Write us @ programdesignlab@gmail.com</Text>
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   aboutText: {
-    fontSize: wp('3.25%'),
+    fontSize: wp('4%'),
     color: Colors.textDark,
     fontFamily: 'lora-italic',
     textAlign: 'justify'

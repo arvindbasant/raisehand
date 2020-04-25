@@ -24,7 +24,10 @@ export default function BottomTabNavigator({ navigation, route }) {
         inactiveBackgroundColor: Colors.background,
         activeTintColor: Colors.tintColor,
         style:{
-          height: hp('8%'),
+          height: hp('7%'),
+        },
+        labelStyle: {
+          fontSize: wp('3%'),
         }
       }}
     >

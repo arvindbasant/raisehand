@@ -106,9 +106,9 @@ const LocationInputField = ({onChange, location, triggerFetch = false, style = u
           <TouchableOpacity onPress={() => setTriggerFetchLocation(true)}
                             style={{flexDirection: 'row', flex: 1, paddingVertical:wp('3%')}}>
             <View style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: wp('5%')}}>
-              <Icon name='location' type='evilicon' color={Colors.textDark} size={wp('4%')}/>
+              <Icon name='location' type='evilicon' color={Colors.textDark} size={wp('4.5%')}/>
             </View>
-            <LatoText style={{fontSize: wp('2.5%'), color:Colors.tintColor}}>Get current location</LatoText>
+            <LatoText style={{fontSize: wp('3%'), color:Colors.tintColor}}>Get current location</LatoText>
           </TouchableOpacity>
         </View>
       ))}
@@ -133,8 +133,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.textLight,
     paddingLeft: wp('1%'),
     color: Colors.textDark,
-    height: wp('12%'),
-    fontSize: wp('3%'),
+    height: wp('14%'),
+    fontSize: wp('3.5%'),
     marginRight: wp('3%'),
   },
   shadow: {

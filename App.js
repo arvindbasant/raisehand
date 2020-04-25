@@ -138,7 +138,6 @@ export default function App() {
           Alert.alert('Login failed');
         }
       } catch ({message}) {
-        alert(`Facebook Login Error: ${message}`);
       }
     },
     signOut: async () => {
@@ -164,16 +163,12 @@ export default function App() {
   }), []);
 
 
-  // Load any resources or data that we need prior to rendering the app
   React.useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
         SplashScreen.preventAutoHide();
 
-        // Load our initial navigation state
         setInitialNavigationState(await getInitialState());
-
-        // Load fonts
         await Font.loadAsync({
           ...Ionicons.font,
           'lato': require('./assets/fonts/Lato-Regular.ttf'),
@@ -182,7 +177,6 @@ export default function App() {
           'roboto-medium': require('./assets/fonts/Roboto-Medium.ttf'),
         });
       } catch (e) {
-        // We might want to provide this error information to an error reporting service
       } finally {
         setLoadingComplete(true);
         SplashScreen.hide();

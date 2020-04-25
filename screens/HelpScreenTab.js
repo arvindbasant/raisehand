@@ -78,7 +78,6 @@ const HelpScreenTab = () => {
       dispatch(setFetching(true));
       const ticketId = await addTicket(getTicketRequest(userId));
       const objectId = await saveAddressIndexInAlgolia(ticketId, ticket.location.enteredLocation);
-      await log({ticketId, objectId, msg: 'ticket created'});
       dispatch(setFetching(false));
       dispatch(setTicket(new Ticket()));
       dispatch(setTabIndex(1));
@@ -185,9 +184,8 @@ const styles = StyleSheet.create({
   },
   counterLabel: {
     fontFamily: 'lato-bold',
-    fontSize: wp('2.75%'),
+    fontSize: wp('3%'),
     color: Colors.brand,
-    fontWeight: '600',
     textTransform: 'capitalize'
   }
 

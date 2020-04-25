@@ -54,12 +54,13 @@ const TicketSearchBar = () => {
       }}
       inputStyle={{
         height: widthPercentageToDP('8%'),
-        fontSize: widthPercentageToDP('3%'),
-        fontFamily: 'lato'
+        fontSize: widthPercentageToDP('3.5%'),
+        fontFamily: 'lato',
+        color: Colors.textDark
       }}
       cancelButtonProps={{
         buttonTextStyle:{
-          fontSize: widthPercentageToDP('3%'),
+          fontSize: widthPercentageToDP('3.5%'),
           fontFamily: 'lato-bold'
         }
       }}

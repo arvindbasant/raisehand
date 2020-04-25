@@ -46,7 +46,7 @@ function SignInScreen({navigation}) {
                         icon="ios-arrow-round-forward"/>
           <FacebookButton onPress={() => socialSignIn('facebook')} text="Continue with Facebook"
                           icon="ios-arrow-round-forward"/>
-          <View style={{alignItems: 'center', paddingBottom: wp('2%')}}>
+          <View style={{alignItems: 'center', paddingVertical: wp('3%')}}>
             <Text style={{color: Colors.border, fontSize: wp('3%')}}>──────── OR ────────</Text>
           </View>
           {renderIf(error !== '', () => <ValidationMessageBox error={error}/>)}
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   content: {
     width: wp('80%'),
-    paddingTop: 20,
+    paddingTop: wp('4%'),
     
   },
 
@@ -104,11 +104,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
-    marginBottom: 50,
+    marginTop: wp('4%'),
+    marginBottom: wp('10%'),
   },
   registerLinkLabel: {
-    fontSize: wp('2.5%'),
+    fontSize: wp('2.75%'),
     fontWeight: '600',
     fontFamily: 'lato-bold',
     color: Colors.textDark,

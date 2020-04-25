@@ -8,8 +8,8 @@ export default function TabBarIcon(props) {
   return (
     <Ionicons
       name={props.name}
-      size={wp('6%')}
-      style={{ marginBottom: wp('-0.5%'), width: wp('6.5%') }}
+      size={wp('6.75%')}
+      style={{ marginBottom: wp('-1%'), width: wp('6.75%') }}
       color={props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
     />
   );

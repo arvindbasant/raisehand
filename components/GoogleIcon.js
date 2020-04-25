@@ -3,7 +3,7 @@ import {Svg, Path, G} from 'react-native-svg';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const GoogleIcon = () => (
-  <Svg width={wp('5%')} height={wp('5%')} viewBox="0 0 48 48"
+  <Svg width={wp('7%')} height={wp('7%')} viewBox="0 0 48 48"
        class="abcRioButtonSvg">
     <G>
       <Path fill="#EA4335"

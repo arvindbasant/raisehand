@@ -116,7 +116,7 @@ const UserProfile = () => {
         alignItems: 'center',
         paddingTop: wp('10%')
       }}>
-        <InputLink onPress={clearStateAndSignOut} text={'Sign out!'} style={{fontSize: wp('5.5%')}}/>
+        <InputLink onPress={clearStateAndSignOut} text={'Sign out!'} style={{fontSize: wp('6.5%')}}/>
       </View>
     );
   }
@@ -125,7 +125,7 @@ const UserProfile = () => {
     <View style={{
       flex: 1,
       alignItems: 'center',
-      paddingTop: wp('10%')
+      marginTop: wp('20%')
     }}>
       <InputLink
         text={'Privacy'}
@@ -166,7 +166,7 @@ const UserProfile = () => {
         <Text style={styles.nameText}>{user.fullName}</Text>
         <Text style={styles.addressText}>{user.location.enteredLocation}</Text>
         <Text style={styles.mobileText}>{user.mobile}</Text>
-        <InputLink onPress={editingData} text={'Edit User'}/>
+        <InputLink onPress={editingData} text={'Edit Profile'} style={{paddingTop: wp('5%')}}/>
         <SignOutLink/>
         <PrivacyLink/>
       </View>
@@ -279,16 +279,15 @@ const styles = StyleSheet.create({
   },
   addressText: {
     fontFamily: 'lato',
-    fontSize: wp('3%'),
+    fontSize: wp('3.5%'),
     color: Colors.textDark,
-    lineHeight: wp('4%'),
+    lineHeight: wp('4.5%'),
     textAlign: 'center',
     marginHorizontal: wp('10%')
-
   },
   mobileText: {
     fontFamily: 'lato-bold',
-    fontSize: wp('3%'),
+    fontSize: wp('3.5%'),
     color: Colors.textDark,
     lineHeight: wp('4%'),
   }

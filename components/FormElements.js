@@ -11,14 +11,14 @@ const CheckBoxField = ({title, checked, onPress}) => {
   return (
     <CheckBox
       containerStyle={styles.formElemContainerStyle}
-      size={wp('4.5%')}
+      size={wp('6%')}
       title={title}
       checked={checked}
       onPress={onPress}
       textStyle={{
         color: Colors.textDark,
+        fontSize: wp('3.5%'),
         fontFamily: 'lato-bold',
-        fontSize: wp('2.75%')
       }}
     />
   );
@@ -38,7 +38,7 @@ const InputLink = ({onPress, text, style}) => {
       <Text style={[{
         color: Colors.brand,
         fontFamily: 'lato-bold',
-        fontSize: wp('2.75%'),
+        fontSize: wp('3.5%'),
         padding: wp('1.5%'),
       }, style]}>{text}</Text>
     </TouchableOpacity>
@@ -76,8 +76,8 @@ const ButtonField = ({onPress, text, icon, style}) => {
   return (
     <TouchableOpacity style={[styles.buttonField, style]} onPress={onPress}>
       <Text style={{
-        fontFamily: 'lato-bold',
-        fontSize: wp('3%'),
+        fontFamily: 'lato',
+        fontSize: wp('3.5%'),
         color: Colors.textLight,
         justifyContent: 'center',
         alignItems: 'center'
@@ -103,8 +103,8 @@ const GoogleButton = ({onPress, text}) => {
       <GoogleIcon/>
       <Text style={{
         fontFamily: 'roboto-medium',
-        fontSize: wp('3%'),
-        paddingLeft: wp('6%'),
+        fontSize: wp('3.5%'),
+        paddingLeft: wp('6.5%'),
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -119,10 +119,10 @@ const GoogleButton = ({onPress, text}) => {
 const FacebookButton = ({onPress, text}) => {
   return (
     <TouchableOpacity style={[styles.buttonField, {backgroundColor: '#4267B2'}]} onPress={onPress}>
-      <Image source={require('../assets/images/f_logo_RGB-White_72.png')} style={{width: wp('6%'), height: wp('6%')}}/>
+      <Image source={require('../assets/images/f_logo_RGB-White_72.png')} style={{width: wp('7.5%'), height: wp('7.5%')}}/>
       <Text style={{
         fontFamily: 'roboto-medium',
-        fontSize: wp('3%'),
+        fontSize: wp('3.5%'),
         paddingLeft: wp('6%'),
         display: 'flex',
         justifyContent: 'center',
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
     flex: 1,
-    height: wp('6.5%'),
+    height: wp('8%'),
     justifyContent: 'center'
   },
   buttonField: {
@@ -151,8 +151,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    height: wp('11%'),
-    borderRadius: wp('5.5%'),
+    height: wp('14%'),
+    borderRadius: wp('7%'),
     paddingLeft: wp('3%'),
     paddingRight: wp('3%'),
     marginBottom: wp('2%'),
@@ -182,8 +182,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.textLight,
     paddingLeft: wp('1%'),
     color: Colors.textDark,
-    height: wp('12%'),
-    fontSize: wp('3%'),
+    height: wp('14%'),
+    fontSize: wp('3.5%'),
     marginRight: wp('3%'),
   },
   card: {

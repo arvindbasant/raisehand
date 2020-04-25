@@ -27,7 +27,7 @@ const HelpScreen = ({ route, navigation }) => {
           tabsContainerStyle={{
             backgroundColor: Colors.tintColor,
             borderRadius: wp('1%'),
-            height: wp('6.75%'),
+            height: wp('8%'),
             shadowColor: Colors.shadow,
             shadowOffset: {
               width: 0,

@@ -93,7 +93,8 @@ const Styles = StyleSheet.create({
 
   countText: {
     fontSize: wp('3.5%'),
-    color: Colors.textDark
+    color: Colors.textDark,
+    fontFamily: 'lato-bold'
   },
 
   count: {
@@ -103,8 +104,8 @@ const Styles = StyleSheet.create({
   },
 
   touchable: {
-    minWidth: wp('7%'),
-    minHeight: wp('7%'),
+    minWidth: wp('8%'),
+    minHeight: wp('8%'),
     borderWidth: wp('0.25%'),
     borderColor: Colors.brand,
     borderRadius: wp('1%'),
@@ -113,7 +114,7 @@ const Styles = StyleSheet.create({
   },
 
   buttonText: {
-    fontSize: wp('4%'),
+    fontSize: wp('6%'),
     color: Colors.brand
   }
 });
